@@ -62,7 +62,7 @@ struct ScreenChar {
 
 #[repr(transparent)]
 struct Buffer {
-    chars: [[Volatile<ScreenChar>; BUFFER_WIDTH]; BUFFER_HEIGHT]
+    chars: [[Volatile<ScreenChar>; BUFFER_WIDTH]; BUFFER_HEIGHT],
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -72,7 +72,7 @@ struct ColorCode(u8);
 impl ColorCode {
     fn new(foreground: Color, background: Color) -> ColorCode {
         ColorCode((background as u8) << 4 | (foreground as u8))
-    } 
+    }
 }
 
 pub struct Writer {
@@ -85,13 +85,13 @@ impl Writer {
     pub fn write_string(&mut self, s: &str) {
         for byte in s.bytes() {
             match byte {
-                // the byte falls in the printable ASCII byte range 
-                // or is a newline 
+                // the byte falls in the printable ASCII byte range
+                // or is a newline
                 0x20..=0x7e | b'\n' => self.write_byte(byte),
                 // the byte falls outside the printable ASCII byte range
                 // print a fallback default character
                 _ => self.write_byte(0xfe),
-            } 
+            }
         }
     }
 
@@ -106,7 +106,7 @@ impl Writer {
                 let row = BUFFER_HEIGHT - 1;
                 let col = self.column_position;
                 let color_code = self.color_code;
-    
+
                 self.buffer.chars[row][col].write(ScreenChar {
                     ascii_character: byte,
                     color_code,
@@ -123,7 +123,7 @@ impl Writer {
                 let character = self.buffer.chars[row][col].read();
                 self.buffer.chars[row - 1][col].write(character);
             }
-        } 
+        }
 
         self.clear_row(BUFFER_HEIGHT - 1);
         self.column_position = 0;
