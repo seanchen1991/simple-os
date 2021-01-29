@@ -31,3 +31,4 @@ and you should be good to go! If you see something different, reach out and let 
 so we can look into it.
 
 [qemu-download]: https://www.qemu.org/download/#windows
+[rustup-download]: https://rustup.rs/
