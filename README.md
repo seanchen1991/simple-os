@@ -7,10 +7,13 @@ A freestanding Rust binary upon which OS abstractions can be built on top of.
 1. Make sure that you're running the `nightly` version of the Rust compiler. If
 you're unsure if you have `rustup` installed or not, you can install it from 
 [here][rustup-download]. Once that's done, run `rustup toolchain install nightly`
-to install and switch to the `nightly` toolchain.
+to install the `nightly` toolchain, then switch to it by running `rustup default
+nightly`.
 2. Fork the repo, then clone it onto your local machine.
 3. Download and install [QEMU][qemu-download], which is the virtual environment 
-we'll be running our OS in.
+we'll be running our OS in (you may need to add it to your path). You can check 
+that QEMU was correctly installed by running `qemu-system-x86_64` and making sure
+an empty window QEMU window pops up.
 4. `cd` into the root of the `simple-os` project.
 5. We'll need to add Rust's `core` and `compiler_builtins` libraries locally. Do
 this by running `rustup component add rust-src`. 
