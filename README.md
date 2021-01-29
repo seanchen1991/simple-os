@@ -14,8 +14,13 @@ we'll be running our OS in.
 4. `cd` into the root of the `simple-os` project.
 5. We'll need to add Rust's `core` and `compiler_builtins` libraries locally. Do
 this by running `rustup component add rust-src`. 
-6. Run `cargo build` to see if everything compiles without issue.
-7. Run `cargo test`. The output should include, among other things, five passing
+6. We'll need to install some additional prerequisites through `cargo`, namely the
+`bootimage` and `llvm-tools-preview` dependencies. You can add these by running 
+`cargo install bootimage` and `rustup component add llvm-tools-preview`. 
+7. Run `cargo build` to see if everything compiles without issue.
+8. Run `cargo run`. If everything is working correctly, a QEMU window should pop
+up with `"Hello World!"` printed inside of it.
+9. Run `cargo test`. The output should include, among other things, five passing
 tests that look like the following:
 
 ```
