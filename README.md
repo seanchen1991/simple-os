@@ -6,7 +6,7 @@ A freestanding Rust binary upon which OS abstractions can be built on top of.
 
 1. Make sure that you're running the `nightly` version of the Rust compiler. If
 you're unsure if you have `rustup` installed or not, you can install it from 
-[here][rustup-dowload]. Once that's done, run `rustup toolchain install nightly`
+[here][rustup-download]. Once that's done, run `rustup toolchain install nightly`
 to install and switch to the `nightly`toolchain.
 2. Fork the repo, then clone it onto your local machine.
 3. Download and install [QEMU][qemu-download], which is the virtual environment 
@@ -31,4 +31,4 @@ and you should be good to go! If you see something different, reach out and let 
 so we can look into it.
 
 [qemu-download]: https://www.qemu.org/download/#windows
-[rustup-download]: https://rustup.rs/
+[rustup-download]: https://rustup.rs
